@@ -1,0 +1,22 @@
+{  
+    "swaggerDefinition": {
+        "swagger": "2.0",
+        "info": {
+          "version": "1.0.0", 
+          "title": "Mutant API Mercado Libre",
+          "description": "Developer evaluation for Mercado Libre",
+          "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+          }
+        },
+        "basePath": "/",
+        "tags": [
+
+        ],
+        "schemes": ["http"],
+        "consumes": ["application/json"],
+        "produces": ["application/json"]
+      },  
+    "apis":["docs/swagger-api-docs.js"]  
+}

@@ -1,0 +1,31 @@
+version: "3.4"
+#Two containers
+services:
+  node:
+    build: .
+    ports:
+      - "3015:3015"     
+    env_file: 
+        - .env      
+    #Doesn't allow to start node without the database
+    links:
+      - data_base
+    depends_on:
+      - data_base
+
+  data_base:
+    container_name: exercisemlbd
+    image: postgres:14.1-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: "ExerciseML"    
+    volumes: 
+        - postgres_data:/var/lib/postgresql/data
+    ports: 
+        - "5433:5432"      
+    env_file: 
+        - .env
+
+volumes:
+  postgres_data:
