@@ -3,7 +3,7 @@ const pools = []
 let config = {
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
-    server: process.env.DB_SERVER,
+    host: process.env.DB_HOST,
     database: process.env.SOURCE_DATABASE,
     port : process.env.DB_PORT
 }
