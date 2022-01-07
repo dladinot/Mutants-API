@@ -47,15 +47,6 @@ docker-compose up
 
 _El servidor se ejecuta en el puerto seleccionado en la varible de entorno PORT http://localhost:3015/_
 
-### Pruebas 🔍
-
-_Las pruebas se ejecutan de forma automática al ejecutar el Docker compose. Al finalizar, se generan reportes en html los cuales pueden ser visualizados desde un navegador como se muestra en la imagen._
-
-![Pruebas unitarias](https://i.imgur.com/e9ZwnEH.png)
-
-_Se pueden visualizar algunas métricas en SonarCloud en la siguiente URL._
-_https://sonarcloud.io/dashboard?id=Miavega_api_mutants_mercado_libre_
-
 ### Visualización 👀
 
 _El API REST expone dos endpoints, /mutan de tipo POST para validar las cadenas de ADN, y otro /stats de tipo GET para obtener las estadísticas de las cadenas analizadas y almacenadas en la base de datos. Cada uno de estos endpoints son accesibles a través del servidor y puerto por el cual se expone el API, por ejemplo:_
