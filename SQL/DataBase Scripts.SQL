@@ -31,20 +31,6 @@ begin
     commit;
 end;$$
 
---execution example
-call SP_INSERT_DNA('sadasdsadas',1);
-
---Function to get the human stats stored in the database by fk_id_Dna_Type 1
-CREATE OR REPLACE FUNCTION fn_get_human_stats()
-RETURNS setof public."DNA" 
-AS 
-$$
-	SELECT "fk_id_Dna_Type" dnaType, COUNT(*) quantity
-	FROM public."DNA"
-	WHERE "fk_id_Dna_Type" = 1
-	GROUP BY "fk_id_Dna_Type"
-$$ LANGUAGE sql;
-
 CREATE OR REPLACE FUNCTION fn_get_human_stats()
 RETURNS table (
   dnaType integer ,
@@ -69,8 +55,6 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
---execution example
-SELECT * from fn_get_human_stats();
 
 --Function to get the mutant stats stored in the database by fk_id_Dna_Type 2
 CREATE OR REPLACE FUNCTION fn_get_mutant_stats()
@@ -97,8 +81,6 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
---execution example
-SELECT * from fn_get_mutant_stats();
 
 --function to get overall stats with percentage of DNA analyzed types based in all samples stored in the database
 create or replace function FN_GET_STATS()
@@ -119,5 +101,10 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
---execution example
-select * from FN_GET_STATS()
+INSERT INTO public."DNAType"(
+	"id_Dna_Type", "dna_Type_Desc")
+	VALUES (DEFAULT, 'Human');
+	
+INSERT INTO public."DNAType"(
+	"id_Dna_Type", "dna_Type_Desc")
+	VALUES (DEFAULT, 'Mutant');
