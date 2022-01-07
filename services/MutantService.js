@@ -36,8 +36,6 @@ const services = {
             else{
                 const humanStats = response.filter(result => result.dnatype == 1);
                 const mutantStats = response.filter(result => result.dnatype == 2);
-                console.log(humanStats[0].percentage);
-                console.log(mutantStats[0].percentage);
                 return { count_mutant_dna: (mutantStats[0].percentage*100.00).toFixed(2),  
                          count_human_dna: (humanStats[0].percentage*100.00).toFixed(2), 
                          ratio: (mutantStats[0].percentage).toFixed(2)
