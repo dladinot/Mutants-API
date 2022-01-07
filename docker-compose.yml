@@ -22,6 +22,8 @@ services:
       POSTGRES_DB: "ExerciseML"    
     volumes: 
         - postgres_data:/var/lib/postgresql/data
+          # copy the sql script to create tables
+        - ./SQL/DataBase_Scripts.sql:/docker-entrypoint-initdb.d/DataBase_Scripts.sql      
     ports: 
         - "5433:5432"      
     env_file: 
