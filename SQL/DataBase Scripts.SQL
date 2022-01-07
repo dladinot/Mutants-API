@@ -93,7 +93,7 @@ AS $$
 DECLARE
 BEGIN
 	return query 
-	SELECT *, (cast(stats.quantity as float)/cast((SELECT COUNT(*) FROM public."DNA") as float)) percentage
+	SELECT *, (cast(stats.quantity as float)/ cast(CASE (SELECT COUNT(*) FROM public."DNA") WHEN 0 THEN 1 ELSE (SELECT COUNT(*) FROM public."DNA") END as float)) percentage
 	FROM
 	(SELECT * from fn_get_human_stats()
 	 UNION
